@@ -1,0 +1,12 @@
+﻿<ul>
+<li>@Html.RouteLink("Home", new { Controller = "Home", Action = "Index" })</li>
+<li>@Html.RouteLink("Resume", new { Controller = "Home", Action = "Resume" })</li>
+<li>@Html.RouteLink("Contact", new { Controller = "Contact", Action = "Index" })</li>
+
+<li>@Html.RouteLink("Portfolio", new { Controller = "Portfolio", Action = "Index" })</li>
+<li>@Html.RouteLink("Download Resume",new {Controller="Download", Action="resume",Type="docx"})&nbsp;(@Html.RouteLink("DOCX",new {Controller="Download", Action="resume",Type="docx"})&nbsp;|&nbsp;@Html.RouteLink("PDF",new {Controller="Download", Action="resume",Type="pdf"}))</li>
+<li><a href="http://www.neilhighley.com/blog">View the blog</a></li>
+
+</ul>
+
+

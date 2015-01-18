@@ -1,0 +1,21 @@
+﻿@model AppMecha.Models.PortfolioItemModel
+
+@{
+    ViewBag.Title = "Portfolio Item";
+    Layout = "_PortfolioLayout.cshtml";
+}
+
+<h2>Show Portfolio Item</h2>
+<div class="portfolio-item-show">
+<img src="@Model.FileURL" />
+<div class="title">@Model.Title</div>
+<div class="description">@Model.Description</div>
+<div class="client">Client: @Model.Client</div>
+<div class="url">Live URL: <a href="@Model.LiveUrl" target="_blank">@Model.LiveUrl</a></div>
+<div class="otherinfo">Other Information: @Model.OtherInfo</div>
+<div class="reference-name">Reference: @Model.Reference1Name</div>
+<div class="reference-company">Company: @Model.Reference1Company</div>
+<div class="reference-email">Email: @Model.Reference1Email</div>
+</div>
+@Html.ActionLink("<< Back to Portfolio", "Index")
+

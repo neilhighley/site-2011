@@ -1,0 +1,99 @@
+﻿@model AppMecha.Models.PortfolioItemModel
+
+@{
+    ViewBag.Title = "Edit Portfolio Item";
+    Layout = "_PortfolioLayout.cshtml";
+}
+
+           
+<h2>Edit Portfolio Item</h2>
+@using (Html.BeginForm("Update", "Portfolio", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <fieldset>
+            <legend>Edit Item</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Title)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Title)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Description)
+            </div>
+             <div class="editor-field">
+                @Html.TextAreaFor(m => m.Description, new { rows = "10", cols = "60" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Client)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Client)
+            </div>
+
+            
+            <div class="editor-label">
+                @Html.LabelFor(m => m.LiveUrl)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.LiveUrl)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Reference1Name)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Reference1Name)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Reference1Position)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Reference1Position)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Reference1Company)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Reference1Company)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Reference1Email)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(m => m.Reference1Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.IsEnabled)
+            </div>
+             <div class="editor-field">
+                @Html.CheckBoxFor(m => m.IsEnabled)
+            </div>
+
+            <div class="editor-label">
+                Upload Image
+            </div>
+            <div class="editor-field">
+               <input type="file" id="imguploaded" name="imguploaded" />
+            </div>
+            <div class="editor-label">
+                Item Type
+            </div>
+             <div class="editor-field">
+                @Html.DropDownListFor(m => m.FileType,new SelectList(new[]{"image","video","swf"},"image"))
+            </div>
+              <p>
+                <input type="submit" value="Upload Image to Portfolio" />
+            </p>
+
+        </fieldset>
+    </div>
+}
+

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Neil Highley - Resume - ASP.NET - Flash - Javascript - HTML - CSS - PHP - Facebook - Twitter";
+}
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        showCV();
+    });
+    function showCV() {
+        var loc = "/files/cv.html";
+        $('#resume-div').load(loc);
+    }
+</script>
+<div id="resume-div"></div>

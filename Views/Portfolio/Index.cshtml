@@ -1,0 +1,82 @@
+﻿
+@using AppMecha.Models
+@using System.Web.Security
+
+@{
+    ViewBag.Title = "neilhighley.com portfolio";
+    Layout = "_PortfolioLayout.cshtml";
+}
+<style>
+#portfolio-table
+{
+    padding:3px;
+    display:table;
+}
+#portfolio-table>.portfolio-item
+{
+    float:left;
+    width:155px;
+    padding:4px;
+    border:1px solid #CCC;
+    margin:5px;
+    display:table-cell;
+}
+#portfolio-table>.portfolio-item>a>img
+{
+    border:0px;
+}
+#portfolio-table>.portfolio-item>.title
+{
+    width:155px;
+    font-weight:800;
+    
+}
+#portfolio-table>.portfolio-item>.title:first-letter
+{
+    font-size:1.1em;
+    text-transform:capitalize;
+}
+#portfolio-table>.portfolio-item>description
+{
+     width:155px;
+     font-size:0.8em;
+}
+#portfolio-table>.portfolio-item>.description:first-letter
+{
+    font-size:1.1em;
+    text-transform:capitalize;
+}
+#portfolio-table>.portfolio-item>.client
+{
+     width:155px;
+     color:#D22;
+}
+#portfolio-table>.portfolio-item>.client:first-letter
+{
+    font-size:1.1em;
+    text-transform:capitalize;
+}
+</style>
+<h2>Welcome to the Portfolio Section</h2>
+<div id="portfolio-table">@foreach (PortfolioItemModel pitem in Model)
+{
+    if (pitem.IsEnabled)
+    {
+        <div class="portfolio-item">
+        <a href="/Portfolio/ShowItem/@pitem.Id" title="View full image" target="_blank"><img title="@pitem.Title" src="@pitem.ThumbnailUrl" /></a>
+        
+        <div class="title">@Html.ActionLink(pitem.Title,"ShowItem",new { id=pitem.Id})</div>
+        <div class="description">@pitem.Description</div>
+        <div class="client">Client: @pitem.Client</div>
+        @if (pitem.LiveUrl != null)
+        {
+            <div class="liveurl"><a target="_blank" href="@pitem.LiveUrl">Live URL</a></div>
+        }
+        @if(Membership.GetUser()!=null){
+         <div class="admin">@Html.ActionLink("Edit", "itemedit", new { id = pitem.Id })</div>   
+        }
+        </div>
+    }
+}</div>
+
+
